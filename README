@@ -1,0 +1,62 @@
+ilana315061945
+315061945
+
+part 1:
+first of all,I initialized a hashset that stores the chars the converted image will be build of,
+this data structure helps to manage easily duplicates of chars(there are no duplicates),and
+allows to accesses to the elements  and do some operation  easily and efficiently.
+
+in the BrightnessImgCharMatcher class I decided to use hashmap to store the subImage and it's brightness value
+,this data structure helps to avoid unnecessary operation(to calculate the average brightness) if the key
+is already in the map(easy to check if the map contains the key(subImage)).
+in addition, it makes the program runs faster
+
+part2:
+
+findDuplicate:
+ explanation:
+first of all, I initialized two indexes that will iterate on the circle
+(that appears because the array contains duplicates,
+ so we can relate to the array as circular path).
+ the first index is advanced slower the the second, the first approached to the numList[slowerRunner],and the
+ second one numList[numList[fasterRunner]],both starts from numList[0].
+ this kind of behavior will make the faster runner to enter first to the cycle,
+ at some point the slower runner will catch up and they will meet(this point is not necessarily the number
+ that we search for).after the runners reached to the same point,
+ I initialized the slower runner to the beginning point,and now the runners
+ moves at the the same speed.
+ now again the runners start to move until they intersects.in this run the intersection point is the desired
+ number.
+
+ runtime:
+the first loop runs in O(n),because the runners will meet in the worst case after n iteration(there are no
+case that the runners will meet after two ore more cycles)
+the second loop is also runs in the worst case O(n), because the faster runner already in the cycle, so less
+then n iterations are needed.
+in addition, the constant operations take O(1)
+In total we got O(n)
+and because I didnt add any data structure, the place complexity is O(1).
+
+
+ uniqueMorseRepresentations:
+
+ first of all,I initialized a list of Morse code,
+ and hashset whose length is basically the required answer.
+ Using a for loop I went through the given list of words and translated each word into his Morse
+ representation and added to the set, the use of set makes it easier to deal with duplicates so that if the
+ string is already found it will not add it again so at the end, the set will contain only unique Morse
+  representation.
+
+
+runtime:
+the nexted for loops, iterate over the words and for each word iterate over it's chars,
+I go through each word letters only once for each word,so in total  the run time is O(s),
+when s indicates the sum of all the letters of the words array
+
+
+
+
+
+
+
+
